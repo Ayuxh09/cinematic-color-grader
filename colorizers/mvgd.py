@@ -1,6 +1,7 @@
 import numpy as np
 from color_matcher import ColorMatcher
 
+
 class TransferMVGD:
     def __init__(self):
         self.matcher = ColorMatcher()
