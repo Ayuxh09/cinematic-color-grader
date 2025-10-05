@@ -18,8 +18,8 @@ st.write("Upload an image and apply cinematic color grading using reference imag
 st.subheader("✨ Example Before & After")
 
 try:
-    before_path = r"C:\Users\singh\OneDrive\Desktop\color_grader_app\Cover\WhatsApp Image 2025-10-05 at 9.52.52 AM.jpeg"
-    after_path = r"C:\Users\singh\OneDrive\Desktop\color_grader_app\Cover\WhatsApp Image 2025-10-05 at 9.52.51 AM.jpeg"
+    before_path = r"Cover\WhatsApp Image 2025-10-05 at 9.52.52 AM.jpeg"
+    after_path = r"Cover\WhatsApp Image 2025-10-05 at 9.52.51 AM.jpeg"
 
     img_before = Image.open(before_path).convert("RGB").resize((400, 400))
     img_after = Image.open(after_path).convert("RGB").resize((400, 400))
