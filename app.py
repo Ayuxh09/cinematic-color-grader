@@ -4,7 +4,7 @@ from PIL import Image, ImageEnhance, ImageDraw, ImageFont
 import numpy as np
 from colorizers.mvgd import TransferMVGD  # ensure mvgd.py is in your project folder
 from io import BytesIO
-
+from PIL import Image
 # -------------------------------
 # App title
 # -------------------------------
@@ -17,12 +17,20 @@ st.write("Upload an image and apply cinematic color grading using reference imag
 # -------------------------------
 st.subheader("✨ Example Before & After")
 
-try:
-    before_path = "Cover/whatsapp_before.jpeg"
-    after_path = "Cover/whatsapp_after.jpeg"
-except Exception as e:
-    print("Could not load demo collage images. Error:", e)
+before_path = os.path.join("Cover", "before.jpeg")
+after_path  = os.path.join("Cover", "after.jpeg")
 
+try:
+    before_img = Image.open(before_path)
+    after_img = Image.open(after_path)
+
+    st.image(
+        [before_img, after_img],
+        caption=["Before", "After"],
+        use_column_width=True
+    )
+except Exception as e:
+    st.error(f"Could not load demo images: {e}")
 
     img_before = Image.open(before_path).convert("RGB").resize((400, 400))
     img_after = Image.open(after_path).convert("RGB").resize((400, 400))
